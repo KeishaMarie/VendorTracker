@@ -1,11 +1,16 @@
 using Microsoft.AspNetCore.Mvc;
 using VendorTracker.Models;
 
-namespace VendoTracker.Controllers
+namespace VendorTracker.Controllers
 {
   public class HomeController : Controller
   {
 
+    [Httpget("/")]
+    public ActionResult Index()
+    {
+      return View();
+    }
 
   }
 }
