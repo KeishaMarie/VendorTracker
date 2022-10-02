@@ -72,10 +72,14 @@ namespace VendorTracker.Tests
     public void AddOrder_AssociatesOrderWithVendor_OrderList()
     {
       string description = "Croissants";
-      Order newOrder = new Order(description);
+      string details = "The Flaky Ones";
+      int price = 20;
+      int date = 10-01-22;
+      Order newOrder = new Order(description, details, price, date);
       List<Order> newList = new List<Order> { newOrder };
       string name = "Suzie's Cafe";
-      Vendor newVendor = new Vendor(name, description);
+      string vendorDescription = "Cafe and Bakery";
+      Vendor newVendor = new Vendor(name, vendorDescription);
       newVendor.AddOrder(newOrder);
       List<Order> result = newVendor.Orders;
       CollectionAssert.AreEqual(newList, result);
