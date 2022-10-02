@@ -100,6 +100,20 @@ namespace VendorTracker.Tests
     }
 
     [TestMethod]
+    public void SetPrice_SetPrice_Int()
+    {
+      string description = "Croissants";
+      string details = "The Flaky Ones";
+      int price = 20;
+      int date = 10-01-22;
+      Order newOrder = new Order(description, details, price, date);
+      int updatedPrice = 30;
+      newOrder.Price = updatedPrice;
+      int result = newOrder.Price;
+      Assert.AreEqual(updatedPrice, result);
+    }
+
+    [TestMethod]
       public void GetAll_ReturnsEmptyList_OrderList()
       {
         List<Order> newList = new List<Order> { };
