@@ -6,7 +6,7 @@ namespace VendorTracker.Controllers
   public class HomeController : Controller
   {
 
-    [Httpget("/")]
+    [HttpGet("/")]
     public ActionResult Index()
     {
       return View();

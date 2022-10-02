@@ -1,11 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
-using ToDoList.Models;
+using VendorTracker.Models;
 using System.Collections.Generic;
 
 namespace VendorTracker.Controllers
 {
 
-  public class OrdersController : Controllers
+  public class OrdersController : Controller
   {
     [HttpGet("/vendors/{vendorId}/orders/new")]
     public ActionResult New(int vendorId)
@@ -14,28 +14,28 @@ namespace VendorTracker.Controllers
       return View(vendor);
     }
 
-    [HttpPost("/vendors/{vendorId}/orders")]
-    public ActionResult Create(int vendorId, string orderDescription)
-    {
-      Dictionary<string, object> model = new Dictionary<string, object>();
-      Vendor foundVendor = Vendor.Find(vendorId);
-      Order newOrder = new Order(orderDescription);
-      foundVendor.AddOrder(newOrder);
-      List<Order> vendorOrders = foundVendor.Orders;
-      model.Add("orders", vendorOrders);
-      model.Add("vendor", foundVendor);
-      return View("Show", model);
-    }
+    // [HttpPost("/vendors/{vendorId}/orders")]
+    // public ActionResult Create(int vendorId, string orderDescription)
+    // {
+    //   Dictionary<string, object> model = new Dictionary<string, object>();
+    //   Vendor foundVendor = Vendor.Find(vendorId);
+    //   Order newOrder = new Order(orderDescription);
+    //   foundVendor.AddOrder(newOrder);
+    //   List<Order> vendorOrders = foundVendor.Orders;
+    //   model.Add("orders", vendorOrders);
+    //   model.Add("vendor", foundVendor);
+    //   return View("Show", model);
+    // }
 
     [HttpPost("/orders/delete")]
     public ActionResult DeletAll()
     {
-      OrdersController.ClearAll();
+      Order.ClearAll();
       return View();
     }
 
     [HttpGet("/vendors/{vendorId}/orders/{orderId}")]
-    public ActionResult Show(int vendorId, int OrderId)
+    public ActionResult Show(int vendorId, int orderId)
     {
       Order order = Order.Find(orderId);
       Vendor vendor = Vendor.Find(vendorId);
