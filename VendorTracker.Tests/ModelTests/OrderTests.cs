@@ -86,6 +86,20 @@ namespace VendorTracker.Tests
     }
 
     [TestMethod]
+    public void SetDetails_SetDetails_String()
+    {
+      string description = "Croissants";
+      string details = "The Flaky Ones";
+      int price = 20;
+      int date = 10-01-22;
+      Order newOrder = new Order(description, details, price, date);
+      string updatedDetails = "Big Croissants";
+      newOrder.Details = updatedDetails;
+      string result = newOrder.Details;
+      Assert.AreEqual(updatedDetails, result);
+    }
+
+    [TestMethod]
       public void GetAll_ReturnsEmptyList_OrderList()
       {
         List<Order> newList = new List<Order> { };
