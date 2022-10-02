@@ -34,14 +34,14 @@ namespace VendorTracker.Controllers
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
       Vendor selectedVendor = Vendor.Find(id);
-      List<Order> VendorOrders = selectedVendor.Orders;
+      List<Order> vendorOrders = selectedVendor.Orders;
       model.Add("vendor", selectedVendor);
-      // model.Add("orders", vendorOrders);
+      model.Add("orders", vendorOrders);
       return View(model);
     }
 
     [HttpPost("/vendors/{vendorId}/orders")]
-    public ActionResult Create(int vendorId, string orderDescription, string orderDetails, int orderPrice, int orderDate)
+    public ActionResult Create(int vendorId, string orderDescription, string orderDetails, int orderPrice, string orderDate)
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
       Vendor foundVendor = Vendor.Find(vendorId);
