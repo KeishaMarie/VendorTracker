@@ -114,6 +114,20 @@ namespace VendorTracker.Tests
     }
 
     [TestMethod]
+    public void SetDate_SetDate_Int()
+    {
+      string description = "Croissants";
+      string details = "The Flaky Ones";
+      int price = 20;
+      int date = 10-01-22;
+      Order newOrder = new Order(description, details, price, date);
+      int updatedDate = 10-31-22;
+      newOrder.Date = updatedDate;
+      int result = newOrder.Date;
+      Assert.AreEqual(updatedDate, result);
+    }
+
+    [TestMethod]
       public void GetAll_ReturnsEmptyList_OrderList()
       {
         List<Order> newList = new List<Order> { };
