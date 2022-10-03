@@ -74,7 +74,7 @@ namespace VendorTracker.Tests
       string description = "Croissants";
       string details = "The Flaky Ones";
       int price = 20;
-      int date = 10-01-22;
+      string date = "10-01-22";
       Order newOrder = new Order(description, details, price, date);
       List<Order> newList = new List<Order> { newOrder };
       string name = "Suzie's Cafe";
